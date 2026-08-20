@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Makes the website mobile friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OnlineEarningZone | Discover Ways to Earn Online</title>
+
+  <style>
+    /* =========================
+       GLOBAL SETTINGS
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #facc15;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: #facc15;
+    }
+
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3a8a, #6d28d9);
+  color: white;
+  text-align: center;
+  padding: 95px 20px;
+}
+
+/* Background glow circles */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -150px;
+  left: -100px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.08);
+  bottom: -150px;
+  right: -80px;
+}
+
+/* Keep hero content above background */
+
+.hero h1,
+.hero p,
+.hero .hero-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: #facc15;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background: white;
+  color: #4f46e5;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.hero-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+    /* =========================
+       GENERAL SECTION
+    ========================== */
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+
+  /* =========================
+   CATEGORY CARDS
+========================== */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.category-card {
+  position: relative;
+  background: white;
+  padding: 32px 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+  color: #222;
+  overflow: hidden;
+  border: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+/* Top gradient line */
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  border-radius: 0 0 10px 10px;
+}
+
+/* Hover effect */
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(37, 99, 235, 0.18);
+}
+
+/* Icon */
+
+.category-icon {
+  font-size: 50px;
+  margin-bottom: 16px;
+  transition: 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+  transform: scale(1.12);
+}
+
+/* Title */
+
+.category-card h3 {
+  font-size: 21px;
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+/* Description */
+
+.category-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+    /* =========================
+       APP PAGES
+    ========================== */
+
+    .page-section {
+      display: none;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 30px;
+      color: #2563eb;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+   /* =========================
+   APP CARDS
+========================== */
+
+.apps-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.app-card {
+  background: white;
+  border-radius: 22px;
+  padding: 32px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.08);
+  transition: 0.3s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.15);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.app-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.app-card h2 {
+  font-size: 26px;
+  color: #1e293b;
+  margin: 0;
+}
+
+.app-card p {
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 25px;
+  padding: 0;
+}
+
+.features li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eef2f7;
+  color: #475569;
+  transition: 0.2s;
+}
+
+.features li:hover {
+  padding-left: 8px;
+  color: #2563eb;
+}
+    /* =========================
+   JOIN BUTTON
+========================== */
+
+.join-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+.join-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+    .coming-soon {
+      display: inline-block;
+      background: #e5e7eb;
+      color: #555;
+      padding: 14px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       DISCLAIMER
+    ========================== */
+
+    .disclaimer {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 20px;
+      border-radius: 10px;
+      color: #555;
+      line-height: 1.7;
+      margin-top: 30px;
+    }
+
+
+   /* =========================
+   FOOTER
+========================== */
+
+footer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+  padding: 45px 20px 30px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.12);
+  top: -150px;
+  left: -100px;
+}
+
+footer p {
+  position: relative;
+  z-index: 1;
+  margin: 10px 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer p:first-child {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* =========================
+   MOBILE DESIGN
+========================== */
+
+@media (max-width: 700px) {
+
+  header {
+    padding: 14px 5%;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero-btn {
+    padding: 13px 24px;
+    font-size: 15px;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-description {
+    font-size: 15px;
+  }
+
+  .category-grid {
+    gap: 18px;
+  }
+
+  .category-card {
+    padding: 28px 20px;
+  }
+
+  .app-card {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .app-header {
+    gap: 14px;
+  }
+
+  .app-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+  }
+
+  .app-card h2 {
+    font-size: 22px;
+  }
+
+  .feature-title {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
+  .feature-details {
+    padding: 15px 10px 8px;
+  }
+
+  .join-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .cart-images {
+    gap: 10px;
+  }
+
+  .cart-images img {
+    width: 47%;
+  }
+}
+   /* Click to expand details */
+
+.expandable {
+  cursor: pointer;
+  padding: 12px 0;
+  transition: 0.3s ease;
+}
+
+.feature-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.expandable:hover .feature-title {
+  background: #f8fafc;
+}
+
+.arrow {
+  font-size: 20px;
+  color: #2563eb;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.feature-details {
+  display: none;
+  padding: 18px 16px 8px;
+  animation: openDetails 0.3s ease;
+}
+
+@keyframes openDetails {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-details p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.feature-details img {
+  width: 100%;
+  max-width: 150px;
+  display: block;
+  margin: 15px auto;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.feature-details img:hover {
+  transform: scale(1.05);
+}
+
+.expandable.open .feature-details {
+  display: block;
+}
+
+.expandable.open .feature-title {
+  background: #f1f5ff;
+}
+
+.expandable.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Full screen image popup */
+
+.image-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.image-popup.show {
+  display: flex;
+}
+
+.image-popup img {
+  max-width: 90%;
+  max-height: 85vh;
+
+  border-radius: 15px;
+
+  animation: zoomImage 0.3s ease;
+}
+
+@keyframes zoomImage {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-image {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  font-size: 35px;
+  color: white;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.cart-images img {
+  width: 45%;
+  max-width: 180px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 12px;
+  
+}
+/* TERMS BUTTON */
+
+.terms-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.terms-btn:hover {
+    background: white;
+    color: #1e293b;
+}
+
+/* =========================
+   TERMS BUTTON
+========================== */
+
+.terms-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.terms-btn:hover {
+  background: white;
+  color: #1e293b;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   TERMS PAGE
+========================== */
+
+.terms-page {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  z-index: 9999;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.terms-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terms-header h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+
+.terms-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.terms-intro {
+  max-width: 700px;
+  margin: 0 auto 35px;
+  text-align: center;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+
+.term-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease;
+}
+
+.term-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.term-card h2 {
+  color: #38bdf8;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.term-card p {
+  color: #d1d5db;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .terms-header {
+        padding: 18px 5%;
+    }
+
+    .terms-header h1 {
+        font-size: 20px;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .terms-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .term-card {
+        padding: 17px;
+    }
+
+    .term-card h2 {
+        font-size: 17px;
+    }
+
+}
+.support-btn {
+    background: transparent;
+    color: white;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10001;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.support-btn:hover {
+    background: white;
+    color: #1e293b;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.website-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.brand span {
+    font-size: 22px;
+    font-weight: bold;
+}
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.oez-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.original-logo-text {
+    margin: 0;
+}
+
+.original-logo-text span {
+    color: #facc15;
+}
+
+
+  </style>
+</head>
+
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================== -->
+
+<header>
+
+  <div class="logo-brand">
+    <img src="image/oez-logo.png" alt="OEZ Logo" class="oez-logo">
+
+    <h1 class="original-logo-text">
+        Online<span>EarningZone</span>
+    </h1>
+</div>
+
+  <nav>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#categories">Categories</a>
+  </nav>
+  <button class="terms-btn" onclick="showTerms()">
+    Terms & Conditions
+</button>
+
+    <a 
+    href="mailto:onlineearningzone.support@gmail.com?subject=OnlineEarningZone%20Support"
+    class="support-btn"
+>
+    📧 Support
+</a>
+
+</header>
+
+
+
+<!-- =========================
+     HOME PAGE
+========================== -->
+
+<div id="homePage">
+
+  <!-- HERO -->
+
+
+<section class="hero">
+
+  <h1>
+    Discover Smart Ways to <span> <br> Earn, Save & Get Rewards💰</br></span> 
+  </h1>
+
+  <p>
+    Explore useful apps, cashback offers, rewards, referral programs and more — all in one place.
+  </p>
+
+  <a href="#categories" class="hero-btn">
+    🚀 Explore Apps ↓
+  </a>
+
+</section>
+
+
+
+  <!-- CATEGORIES -->
+
+  <section id="categories">
+
+    <h2 class="section-title">
+      Explore Categories
+    </h2>
+
+    <p class="section-description">
+      Choose a category and discover apps and opportunities.
+    </p>
+
+
+    <div class="category-grid">
+
+
+      <!-- WALK TO EARN -->
+
+      <div class="category-card"
+           onclick="showPage('walkPage')">
+
+        <div class="category-icon">🚶</div>
+
+        <h3>Walk to Earn</h3>
+
+        <p>
+          Stay active and explore rewards,
+          vouchers and exciting opportunities.
+        </p>
+
+      </div>
+
+
+
+      <!-- SHARE INTERNET -->
+
+      <div class="category-card"
+           onclick="showPage('internetPage')">
+
+        <div class="category-icon">🌐</div>
+
+        <h3>Share Internet & Earn</h3>
+
+        <p>
+          Explore apps that offer earning
+          opportunities through unused internet.
+        </p>
+
+      </div>
+
+
+
+      <!-- UPI -->
+
+      <div class="category-card"
+           onclick="showPage('upiPage')">
+
+        <div class="category-icon">💸</div>
+
+        <h3>Pay & Earn with UPI</h3>
+
+        <p>
+          Make payments and explore available
+          cashback and rewards.
+        </p>
+
+      </div>
+
+
+
+      <!-- SHOPPING -->
+
+      <div class="category-card"
+           onclick="showPage('shoppingPage')">
+
+        <div class="category-icon">🛍️</div>
+
+        <h3>Shop & Earn Online</h3>
+
+        <p>
+          Shop online and explore cashback,
+          vouchers and special offers.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- DISCLAIMER -->
+
+  <section>
+
+    <div class="disclaimer">
+
+      <strong>Important:</strong>
+
+      Offers, cashback, rewards and referral benefits may change
+      depending on the app, user eligibility, location and current
+      promotional terms. Please check the official app or website
+      for the latest information.
+
+    </div>
+
+  </section>
+
+
+</div>
+
+
+
+
+
+<!-- =========================
+     WALK TO EARN PAGE
+========================== -->
+
+<div id="walkPage" class="page-section">
+
+  <section>
+
+    <div class="apps-container">
+
+      <div class="back-btn"
+           onclick="showHome()">
+
+        ← Back to Home
+
+      </div>
+
+
+      <h1 class="section-title">
+        🚶 Walk to Earn
+      </h1>
+
+      <p class="section-description">
+        🚶‍♂️ Stay active, walk more, and turn your daily steps into more rewards!💸
+      </p>
+
+
+
+      <!-- SWEATCOIN -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/sweatcoin.png" alt="Sweatcoin Logo">
+          </div>
+
+          <div>
+            <h2>Sweatcoin</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Turn your daily steps into exciting rewards
+          and explore available offers.
+        </p>
+
+
+        <ul class="features">
+
+          <li class="expandable" onclick="toggleDetails(this)">
+  
+            <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💰 Cash prizes and special rewards when available</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore special rewards, gift cards and other exciting offers
+      that may be available in the Sweatcoin app.
+    </p>
+
+            <img 
+          src="image/giftcard.jpeg" 
+          alt="Sweatcoin Gift Card Rewards"
+          onclick="openImage(this.src)"
+        >
+
+  </div>
+
+</li>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🏆 Superdraws and competitions when available</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore Superdraws, competitions and other special opportunities
+      that may be available in the Sweatcoin app.
+    </p>
+
+    <img 
+      src="image/superdraw.jpeg" 
+      alt="Sweatcoin Superdraw"
+      onclick="openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎁 Exclusive rewards and offers</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore exclusive rewards, special offers and exciting opportunities
+      that may be available in the Sweatcoin app.
+    </p>
+
+    <img 
+      src="image/special.jpeg" 
+      alt="Sweatcoin Special Rewards"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+        </ul>
+
+
+        <a
+          href="https://fgjq.adj.st/?adj_t=1osfh5nh&adj_label=inviter_id%3D178234517%2526inviter_name%3DParth%2520Solanki%2526channel%3Dother%2526feature%3Dinvite"
+          target="_blank"
+          class="join-btn">
+
+          JOIN SWEATCOIN
+
+        </a>
+
+      </div>
+
+
+
+      <!-- STEPSETGO -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/ssg.jpg" alt="StepSetGo Logo">
+          </div>
+
+          <div>
+            <h2>StepSetGo</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Get rewarded for staying fit!
+          Walk, run or stay active and explore
+          exciting rewards and benefits.
+        </p>
+
+
+        <ul class="features">
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎁 Amazon and Flipkart vouchers</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore Amazon and Flipkart vouchers available through StepSetGo.
+    </p>
+
+    <img 
+      src="image/flipkart.jpeg" 
+      alt="Amazon and Flipkart Vouchers"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💸 Up to 30% OFF on selected vouchers</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Get up to 30% OFF on selected vouchers when the offer is available.
+    </p>
+
+    <img 
+      src="image/30%.jpeg" 
+      alt="Up to 30 Percent OFF"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>
+      🏷️ Example: A ₹100 voucher may be available
+      for ₹70 when a 30% discount is offered.
+    </span>
+
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Here is an example of how a voucher discount may work when
+      a 30% or 50% offer is available.
+    </p>
+
+    <div class="cart-images">
+
+  <img 
+    src="image/cart1.jpeg" 
+    alt="Voucher Example Before Discount"
+    onclick="event.stopPropagation(); openImage(this.src)"
+  >
+
+  <img 
+    src="image/cart2.jpeg" 
+    alt="Voucher Example After Discount"
+    onclick="event.stopPropagation(); openImage(this.src)"
+  >
+
+</div>
+  </div>
+
+</li>
+          <li>
+            🔑 Referral Code: <strong>y7e8979spe</strong> use and get 20 ssg coin
+          </li>
+
+        </ul>
+
+
+        <a
+          href="https://app.stepsetgo.com/i/y7e8979spe"
+          target="_blank"
+          class="join-btn">
+
+          JOIN STEPSETGO
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+<!-- =========================
+     SHARE INTERNET PAGE
+========================== -->
+
+<div id="internetPage" class="page-section">
+
+  <section>
+
+    <div class="apps-container">
+
+      <div class="back-btn"
+           onclick="showHome()">
+
+        ← Back to Home
+
+      </div>
+
+
+      <h1 class="section-title">
+        🌐 Share Internet & Earn
+      </h1>
+
+      <p class="section-description">
+        Explore apps that provide earning opportunities
+        through internet sharing and other activities.
+      </p>
+
+
+
+      <!-- HONEYGAIN -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/honeygain1.png" alt="Honeygain Logo">
+          </div> 
+
+          <div>
+            <h2>Honeygain</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Share unused internet bandwidth and explore
+          available earning opportunities.
+        </p>
+
+
+        <ul class="features">
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💰 Earn by sharing your unused internet</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Honeygain lets you earn by sharing your unused internet connection.
+    </p>
+
+    <img 
+      src="image/honeygain.jpeg" 
+      alt="Honeygain"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🌐 Share your unused internet</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Share your unused internet connection and earn while your device is online.
+    </p>
+
+    <img 
+      src="image/internet.png" 
+      alt="Share Internet"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💵 Earn extra income</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Earn rewards from your shared internet connection through Honeygain.
+    </p>
+
+    <img 
+      src="image/earn.png" 
+      alt="Earn with Honeygain"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+        </ul>
+
+
+        <a
+          href="https://join.honeygain.com/PARTH74AF2"
+          target="_blank"
+          class="join-btn">
+
+          JOIN HONEYGAIN
+
+        </a>
+
+      </div>
+
+
+
+      <!-- PAWNS.APP -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/pawnsapp.png" alt="Pawns.app Logo">
+          </div>
+
+          <div>
+            <h2>Pawns.app</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Earn through available opportunities such as
+          sharing unused internet and completing surveys.
+        </p>
+
+
+        <ul class="features">
+
+          <li>🌐 Share unused internet</li>
+
+          <li>📝 Complete available surveys</li>
+
+          <li>💰 Explore multiple ways to earn</li>
+
+          <li>📱 Easy to get started</li>
+
+        </ul>
+
+
+        <!-- Referral link will be added later -->
+
+        <span class="coming-soon">
+          LINK COMING SOON
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+<!-- =========================
+     UPI PAGE
+========================== -->
+
+<div id="upiPage" class="page-section">
+
+  <section>
+
+    <div class="apps-container">
+
+      <div class="back-btn"
+           onclick="showHome()">
+
+        ← Back to Home
+
+      </div>
+
+
+      <h1 class="section-title">
+        💸 Pay & Earn with UPI
+      </h1>
+
+      <p class="section-description">
+        Make payments and explore available cashback
+        and reward opportunities.
+      </p>
+
+
+
+      <!-- NAVI -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/navi.png" alt="Navi Logo">
+          </div>
+
+          <div>
+            <h2>Navi UPI</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Make fast and easy UPI payments and explore
+          available cashback rewards.
+        </p>
+
+
+        <ul class="features">
+
+         <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>⚡ Fast and smooth UPI payments</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Enjoy fast and smooth UPI payments with Navi.
+    </p>
+
+    <img 
+      src="image/upi.jpeg" 
+      alt="Fast and Smooth UPI Payments"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+         <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>⚡ Get ₹5 cashback on your first payment</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Get ₹5 cashback on your first payment through the Navi UPI offer.
+    </p>
+
+    <img 
+      src="image/reword.png" 
+      alt="₹5 Cashback Reward"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>📈 Invest in Smart Mutual Funds and Grow Your Money</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore investment options and mutual funds to help grow your money.
+    </p>
+
+    <div class="cart-images">
+      <img src="image/fund.jpeg" alt="Navi Mutual Fund"
+        onclick="event.stopPropagation(); openImage(this.src)">
+
+      <img src="image/fund1.jpeg" alt="Navi Investment"
+        onclick="event.stopPropagation(); openImage(this.src)">
+    </div>
+
+  </div>
+
+</li>
+
+        </ul>
+
+        <a
+          href="https://r.navi.com/q7UDQB"
+          target="_blank"
+          class="join-btn">
+
+          JOIN NAVI UPI </a>
+
+      </div>
+
+
+
+      <!-- PHONEPE -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/phone.jpg" alt="PhonePe Logo">
+          </div>
+
+          <div>
+            <h2>PhonePe</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Make UPI payments and explore available
+          offers and rewards.
+        </p>
+
+
+        <ul class="features">
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💸 Easy UPI payments, trusted by 70cr* Indians</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Make easy and convenient UPI payments trusted by millions of users.
+    </p>
+
+    <img 
+      src="image/70cr.jpeg" 
+      alt="Easy UPI Payments"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎁 Buy Gold & Silver</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore options to buy digital gold and silver through the app.
+    </p>
+
+    <img 
+      src="image/new.jpeg" 
+      alt="Buy Gold and Silver"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>📱 Simple and convenient payments</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Enjoy simple, fast and convenient payments for your everyday needs.
+    </p>
+
+    <img 
+      src="image/easy.jpeg" 
+      alt="Simple and Convenient Payments"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+        </ul>
+
+
+        <a
+          href="https://phon.pe/dp972rpo"
+          target="_blank"
+          class="join-btn">
+
+          JOIN PHONEPE
+
+        </a>
+
+      </div>
+
+
+
+      <!-- SUPER MONEY -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/super.png" alt="super.money Logo">
+          </div>
+
+          <div>
+            <h2>super.money</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Explore UPI payments, cashback and available
+          reward opportunities.
+        </p>
+
+
+        <ul class="features">
+
+          <li>💸 UPI payments</li>
+
+          <li>🎁 Available cashback and rewards</li>
+
+          <li>📱 Easy digital payments</li>
+
+        </ul>
+
+
+        <!-- Referral link will be added later -->
+
+        <span class="coming-soon">
+          LINK COMING SOON
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+
+<!-- =========================
+     SHOPPING PAGE
+========================== -->
+
+<div id="shoppingPage" class="page-section">
+
+  <section>
+
+    <div class="apps-container">
+
+      <div class="back-btn"
+           onclick="showHome()">
+
+        ← Back to Home
+
+      </div>
+
+
+      <h1 class="section-title">
+        🛍️ Shop & Earn Online
+      </h1>
+
+      <p class="section-description">
+        Shop online and explore cashback,
+        vouchers and special offers.
+      </p>
+
+
+
+      <!-- CASHKARO -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/cashkaro.png" alt="CashKaro Logo">
+          </div>
+
+          <div>
+            <h2>CashKaro</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Save more while shopping online and earn
+          cashback on eligible purchases.
+        </p>
+
+
+        <ul class="features">
+
+          <!-- 1. Get Cashback on 1500+ Popular Brands -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🛍️ Get Cashback on 1500+ Popular Brands</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Shop from 1500+ popular brands and explore available cashback offers.
+    </p>
+
+    <img 
+      src="image/1500.jpeg"
+      alt="Cashback on Popular Brands"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+
+<!-- 2. Save More by Shopping Through CashKaro -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>💸 Save More by Shopping Through CashKaro</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Shop through CashKaro and earn cashback on eligible purchases,
+      helping you save more on your shopping.
+    </p>
+
+    <img 
+      src="image/low.jpeg"
+      alt="Save More with Cashback"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+
+<!-- 3. Transfer Cashback Directly to Your Bank Account -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🏦 Transfer Your Cashback Directly to Your Bank Account</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Transfer your available cashback directly to your bank account,
+      subject to the app's withdrawal terms and conditions.
+    </p>
+
+    <img 
+      src="image/account.jpeg"
+      alt="Cashback to Bank Account"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+
+<!-- 4. Refer Friends and Get ₹50 Bonus Cashback -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎁 Refer Friends and Get ₹50 Bonus Cashback</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Refer eligible friends and complete the required offer conditions
+      to become eligible for a ₹50 Bonus Cashback.
+    </p>
+
+    <img 
+      src="image/bonus.jpeg"
+      alt="Refer Friends ₹50 Bonus Cashback"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+        </ul>
+
+
+        <a
+          href="https://cashk.app.link/?r=25317223"
+          target="_blank"
+          class="join-btn">
+
+          JOIN CASHKARO
+
+        </a>
+
+      </div>
+
+
+
+      <!-- ZINGOY -->
+
+      <div class="app-card">
+
+        <div class="app-header">
+
+          <div class="app-icon">
+            <img src="image/zingoy.png" alt="Zingoy Logo">
+          </div>
+
+          <div>
+            <h2>Zingoy</h2>
+          </div>
+
+        </div>
+
+
+        <p>
+          Explore shopping offers, gift cards,
+          cashback opportunities and special deals.
+        </p>
+
+
+        <ul class="features">
+
+         <!-- 1. Save & Earn Cashback at 200+ Popular Stores -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🛍️ Save & Earn Cashback at 200+ Popular Stores</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Shop from 200+ popular stores and earn cashback on eligible purchases.
+    </p>
+
+    <img 
+      src="image/200.jpeg"
+      alt="Cashback at Popular Stores"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+
+<!-- 2. Buy Gift Cards with Discounts & Cashback -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎁 Buy Gift Cards with Discounts & Cashback</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Explore gift cards from popular brands with available discounts and cashback offers.
+    </p>
+
+    <img 
+      src="image/gift.jpeg"
+      alt="Gift Cards with Cashback"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+
+<!-- 3. Play Fun Zing Quests and Earn Rewards -->
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+    <span>🎯 Play Fun Zing Quests and Earn Rewards</span>
+    <span class="arrow">🔽</span>
+  </div>
+
+  <div class="feature-details">
+
+    <p>
+      Complete fun Zing Quests and explore opportunities to earn rewards.
+    </p>
+
+    <img 
+      src="image/ques.jpeg"
+      alt="Zing Quest Rewards"
+      onclick="event.stopPropagation(); openImage(this.src)"
+    >
+
+  </div>
+
+</li>
+
+        </ul>
+
+
+        <a
+          href="https://www.zingoy.com/refer-earn-status?referrer_code=parsol224"
+          target="_blank"
+          class="join-btn">
+
+          JOIN ZINGOY
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+  <h3>OnlineEarningZone</h3>
+
+  <p>
+    Discover apps, rewards, cashback opportunities
+    and more.
+  </p>
+
+  <p>
+    © 2026 OnlineEarningZone. All rights reserved.
+  </p>
+
+</footer>
+
+
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+  /*
+    This function opens the selected category page.
+  */
+
+  function showPage(pageId) {
+
+    // Hide home page
+    document.getElementById("homePage").style.display = "none";
+
+
+    // Hide all category pages
+    const pages = document.querySelectorAll(".page-section");
+
+    pages.forEach(function(page) {
+
+      page.classList.remove("active");
+
+    });
+
+
+    // Show selected page
+    document.getElementById(pageId).classList.add("active");
+
+
+    // Move screen to top
+    window.scrollTo(0, 0);
+
+  }
+
+
+
+  /*
+    This function returns the user to the home page.
+  */
+
+  function showHome() {
+
+    // Show home page
+    document.getElementById("homePage").style.display = "block";
+
+
+    // Hide all category pages
+    const pages = document.querySelectorAll(".page-section");
+
+    pages.forEach(function(page) {
+
+      page.classList.remove("active");
+
+    });
+
+
+    // Move screen to top
+    window.scrollTo(0, 0);
+
+  }
+
+  function toggleDetails(element) {
+  element.classList.toggle("open");
+}
+function openImage(imageSrc) {
+
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
+
+  popupImage.src = imageSrc;
+
+  popup.classList.add("show");
+}
+
+
+function closeImage(event) {
+
+  const popup = document.getElementById("imagePopup");
+
+  // Close only when clicking outside the image
+  if (
+    event.target === popup ||
+    event.target.classList.contains("close-image")
+  ) {
+    popup.classList.remove("show");
+  }
+}
+function showTerms() {
+    document.getElementById("termsPage").style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function hideTerms() {
+    document.getElementById("termsPage").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+function openSupport() {
+    window.location.href = "mailto:onlineearningzone.support@gmail.com";
+}
+
+</script>
+<!-- Image Zoom Popup -->
+
+<div id="imagePopup" class="image-popup" onclick="closeImage(event)">
+
+  <span class="close-image">&times;</span>
+
+  <img id="popupImage" src="" alt="Full Screen Image">
+
+</div>
+
+<!-- TERMS & CONDITIONS PAGE -->
+<div id="termsPage" class="terms-page">
+
+    <div class="terms-header">
+
+        <h1>📜 Terms & Conditions</h1>
+
+        <button class="back-btn" onclick="hideTerms()">
+            ← Back to Home
+        </button>
+
+    </div>
+
+
+    <div class="terms-container">
+
+        <p class="terms-intro">
+            Please read these terms before using the information,
+            offers, and referral links available on this website.
+        </p>
+
+
+        <div class="term-card">
+            <h2>🎁 New Users & Referral Rewards</h2>
+            <p>
+                Some referral rewards, bonuses, cashback offers, or other
+                benefits may only be available to eligible new users.
+                Existing users may not qualify for these offers.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🔄 Rewards & Offers May Change</h2>
+            <p>
+                Reward amounts, cashback percentages, discounts, bonuses,
+                and available offers may change, expire, or be removed at
+                any time by the respective app or platform.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>✅ Eligibility Requirements</h2>
+            <p>
+                Users must complete the required conditions set by the
+                respective app or service to become eligible for any reward,
+                cashback, bonus, or referral benefit.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🚶 Effort May Be Required</h2>
+            <p>
+                Some earning methods require time, activity, or effort.
+                For example, Walk & Earn apps may require users to walk
+                regularly or complete specific activities before earning
+                rewards.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>⚠️ No Guaranteed Earnings</h2>
+            <p>
+                Earnings and rewards are not guaranteed. The amount a user
+                may earn depends on activity, eligibility, available offers,
+                and the terms of the respective platform.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>⏳ Offers May Expire</h2>
+            <p>
+                Referral bonuses, cashback rates, discounts, and special
+                offers may have limited availability and can expire or change
+                without prior notice.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>📱 Third-Party Apps & Services</h2>
+            <p>
+                This website provides information and referral links to
+                third-party apps and services. We do not own or control
+                these apps. Each platform has its own terms, policies,
+                eligibility rules, and reward conditions.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🔍 Verify Before Participating</h2>
+            <p>
+                Users should check the latest terms, conditions, eligibility
+                requirements, and offer details inside the respective app
+                before participating.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🌍 Availability May Vary</h2>
+            <p>
+                Some apps, rewards, cashback offers, and features may not
+                be available for every user, device, location, or region.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🛡️ Responsible Use</h2>
+            <p>
+                Users are responsible for using the listed apps and services
+                according to the rules of each respective platform.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>🔗 Referral Link Disclosure</h2>
+            <p>
+                Some links on this website are referral links. The website
+                owner may receive a reward, commission, or other benefit when
+                eligible users sign up or complete the required conditions
+                through these links.
+            </p>
+        </div>
+
+
+        <div class="term-card">
+            <h2>📝 Information Updates</h2>
+            <p>
+                App details, rewards, offers, and links may be updated,
+                changed, or removed as the respective platforms modify
+                their services.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
