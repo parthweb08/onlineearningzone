@@ -1073,12 +1073,12 @@ html, body {
   }
 
   .category-card {
-    width: 85%;
-    max-width: 300px;
-    min-height: 0;
-    padding: 20px 18px;
-    margin: 0 auto;
-  }
+  width: 75%;
+  max-width: 260px;
+  min-height: 260px;
+  padding: 30px 18px;
+  margin: 0 auto;
+}
 
   .category-icon {
     font-size: 42px;
@@ -2390,6 +2390,10 @@ html, body {
 
   function showPage(pageId) {
 
+// Close all opened details
+document.querySelectorAll(".expandable").forEach(function(item) {
+  item.classList.remove("open");
+});
     // Hide home page
     document.getElementById("homePage").style.display = "none";
 
@@ -2427,6 +2431,11 @@ html, body {
 });
 
   function showHome() {
+
+    // Close all opened details
+document.querySelectorAll(".expandable").forEach(function(item) {
+  item.classList.remove("open");
+});
 
     // Show home page
     document.getElementById("homePage").style.display = "block";
