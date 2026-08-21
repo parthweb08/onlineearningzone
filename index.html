@@ -2041,20 +2041,100 @@ html, body {
 
         <ul class="features">
 
-          <li>💸 UPI payments</li>
+  <!-- ₹21 FREE CASHBACK -->
+  <li class="expandable" onclick="toggleDetails(this)">
 
-          <li>🎁 Available cashback and rewards</li>
+    <div class="feature-title">
+      <span>🎁 Get ₹21 Free Cashback</span>
+      <span class="arrow">🔽</span>
+    </div>
 
-          <li>📱 Easy digital payments</li>
+    <div class="feature-details">
 
-        </ul>
+      <p>
+        Get ₹21 free cashback by completing the required offer.
+      </p>
 
+      <img
+        src="20free.jpeg"
+        alt="₹21 Free Cashback"
+        onclick="event.stopPropagation(); openImage(this.src)"
+      >
+
+    </div>
+
+  </li>
+
+
+  <!-- CASHBACK -->
+  <li class="expandable" onclick="toggleDetails(this)">
+
+    <div class="feature-title">
+      <span>💸 Earn Cashback on Payments and Offers</span>
+      <span class="arrow">🔽</span>
+    </div>
+
+    <div class="feature-details">
+
+      <p>
+        Earn cashback on eligible payments and available offers.
+      </p>
+
+      <div class="cart-images">
+
+        <img
+          src="cashback1.jpeg"
+          alt="Cashback"
+          onclick="event.stopPropagation(); openImage(this.src)"
+        >
+
+        <img
+          src="cashback2.jpeg"
+          alt="Cashback Offers"
+          onclick="event.stopPropagation(); openImage(this.src)"
+        >
+
+      </div>
+
+    </div>
+
+  </li>
+
+
+  <!-- REDEEM -->
+  <li class="expandable" onclick="toggleDetails(this)">
+
+    <div class="feature-title">
+      <span>🏦 Redeem Cashback</span>
+      <span class="arrow">🔽</span>
+    </div>
+
+    <div class="feature-details">
+
+      <p>
+        Redeem your available cashback according to the available options.
+      </p>
+
+      <img
+        src="redeem.jpeg"
+        alt="Redeem Cashback"
+        onclick="event.stopPropagation(); openImage(this.src)"
+      >
+
+    </div>
+
+  </li>
+
+</ul>
 
         <!-- Referral link will be added later -->
 
-        <span class="coming-soon">
-          LINK COMING SOON
-        </span>
+        <a
+  href="https://link.super.money/ZsgcLKVBRZb"
+  target="_blank"
+  class="join-btn">
+  JOIN SUPER MONEY
+</a>
 
       </div>
 
@@ -2398,7 +2478,20 @@ html, body {
   /*
     This function opens the selected category page.
   */
+ function closeAllDetails() {
+  document.querySelectorAll(".expandable").forEach(function(item) {
+    item.classList.remove("open");
+  });
+
+  // Agar image popup bhi open ho to close kar do
+  const popup = document.getElementById("imagePopup");
+  if (popup) {
+    popup.classList.remove("show");
+  }
+}
 function showPage(pageId, addToHistory = true) {
+  
+    closeAllDetails();
 
   // Category page par header sticky nahi rahega
   document.body.classList.add("category-page");
@@ -2430,7 +2523,7 @@ function showPage(pageId, addToHistory = true) {
 
 
 function showHome() {
-
+  closeAllDetails();
   // Home page par header sticky rahega
   document.body.classList.remove("category-page");
 
