@@ -40,19 +40,30 @@
        HEADER
     ========================== */
 
-    header {
-      background: linear-gradient(135deg, #111827, #2563eb);
-      color: white;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    }
+   header {
+    background: linear-gradient(135deg, #111827, #2563eb);
+    color: white;
 
+    padding: 18px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+/* Category pages par header fixed nahi rahega */
+body.category-page header {
+  position: relative;
+}
     .logo {
       font-size: 24px;
       font-weight: bold;
@@ -1491,7 +1502,7 @@ html, body {
     </p>
 
     <img 
-      src="30%.jpeg" 
+      src="30.jpeg" 
       alt="Up to 30 Percent OFF"
       onclick="event.stopPropagation(); openImage(this.src)"
     >
@@ -2387,75 +2398,79 @@ html, body {
   /*
     This function opens the selected category page.
   */
+function showPage(pageId, addToHistory = true) {
 
-  function showPage(pageId) {
+  // Category page par header sticky nahi rahega
+  document.body.classList.add("category-page");
 
-// Close all opened details
-document.querySelectorAll(".expandable").forEach(function(item) {
-  item.classList.remove("open");
-});
-    // Hide home page
-    document.getElementById("homePage").style.display = "none";
+  // Home page hide
+  document.getElementById("homePage").style.display = "none";
 
+  // Sab category pages hide
+  const pages = document.querySelectorAll(".page-section");
 
-    // Hide all category pages
-    const pages = document.querySelectorAll(".page-section");
+  pages.forEach(function(page) {
+    page.classList.remove("active");
+  });
 
-    pages.forEach(function(page) {
+  // Selected page show
+  document.getElementById(pageId).classList.add("active");
 
-      page.classList.remove("active");
-
-    });
-
-
-    // Show selected page
-    document.getElementById(pageId).classList.add("active");
-
-
-    // Move screen to top
-    window.scrollTo(0, 0);
-
+  // History
+  if (addToHistory) {
+    history.pushState(
+      { page: pageId },
+      "",
+      "#" + pageId
+    );
   }
 
+  window.scrollTo(0, 0);
+}
 
 
-  /*
-    This function returns the user to the home page.
-  */
- window.addEventListener("load", function () {
-    if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname);
-    }
+function showHome() {
 
-    window.scrollTo(0, 0);
-});
+  // Home page par header sticky rahega
+  document.body.classList.remove("category-page");
 
-  function showHome() {
+  // Home show
+  document.getElementById("homePage").style.display = "block";
 
-    // Close all opened details
-document.querySelectorAll(".expandable").forEach(function(item) {
-  item.classList.remove("open");
-});
+  // Sab category pages hide
+  const pages = document.querySelectorAll(".page-section");
 
-    // Show home page
+  pages.forEach(function(page) {
+    page.classList.remove("active");
+  });
+
+  history.pushState(null, "", window.location.pathname);
+
+  window.scrollTo(0, 0);
+}
+
+
+// MOBILE / BROWSER BACK BUTTON
+window.addEventListener("popstate", function(event) {
+
+  if (event.state && event.state.page) {
+
+    showPage(event.state.page, false);
+
+  } else {
+
     document.getElementById("homePage").style.display = "block";
 
-
-    // Hide all category pages
     const pages = document.querySelectorAll(".page-section");
 
     pages.forEach(function(page) {
-
       page.classList.remove("active");
-
     });
 
-
-    // Move screen to top
     window.scrollTo(0, 0);
-
   }
 
+});
   function toggleDetails(element) {
   element.classList.toggle("open");
 }
@@ -2485,16 +2500,40 @@ function closeImage(event) {
 function showTerms() {
     document.getElementById("termsPage").style.display = "block";
     document.body.style.overflow = "hidden";
+
+    // Mobile/browser back button support
+    history.pushState({ page: "terms" }, "", "#terms");
 }
+
 
 function hideTerms() {
     document.getElementById("termsPage").style.display = "none";
     document.body.style.overflow = "auto";
+
+    // Back to home state
+    if (history.state && history.state.page === "terms") {
+        history.back();
+    }
 }
 function openSupport() {
     window.location.href = "mailto:onlineearningzone.support@gmail.com";
 }
+window.addEventListener("popstate", function () {
 
+    // Terms page close
+    document.getElementById("termsPage").style.display = "none";
+    document.body.style.overflow = "auto";
+
+    // Home page show
+    document.getElementById("homePage").style.display = "block";
+
+    // Hide category pages
+    document.querySelectorAll(".page-section").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    window.scrollTo(0, 0);
+});
 </script>
 <!-- Image Zoom Popup -->
 
