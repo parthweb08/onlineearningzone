@@ -2627,6 +2627,11 @@ window.addEventListener("popstate", function () {
 
     window.scrollTo(0, 0);
 });
+window.addEventListener("load", function () {
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
+    }
+});
 </script>
 <!-- Image Zoom Popup -->
 
