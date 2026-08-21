@@ -1108,6 +1108,27 @@ html, body {
   }
 
 }
+.page-section section {
+  padding-top: 0.1px;
+}
+
+.back-btn {
+  margin-bottom: 0px;
+}
+
+.game-images {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  justify-content: center;
+}
+
+.game-images img {
+  width: calc(50% - 5px);
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
   </style>
 </head>
@@ -1224,6 +1245,21 @@ html, body {
         <p>
           Explore apps that offer earning
           opportunities through unused internet.
+        </p>
+
+      </div>
+
+      <!-- COMPLETE TASKS & EARN -->
+
+      <div class="category-card"
+          onclick="showPage('taskPage')">
+
+        <div class="category-icon">📋</div>
+
+        <h3>Complete Tasks & Earn</h3>
+
+        <p>
+          Play games, complete surveys and small tasks to earn rewards.
         </p>
 
       </div>
@@ -1713,51 +1749,358 @@ html, body {
 
       </div>
 
+  </div>
+  </section>
+</div>
+
+      
+<!-- =========================
+     COMPLETE TASKS & EARN PAGE
+========================= -->
+
+<div id="taskPage" class="page-section">
+
+  <section>
+
+    <div class="apps-container">
+
+      <div class="back-btn" onclick="showHome()">
+        ← Back to Home
+      </div>
+
+      <h1 class="section-title">
+        📋 Complete Tasks & Earn
+      </h1>
+
+      <p class="section-description">
+        Play games, complete surveys and small tasks to earn rewards.
+      </p>
 
 
-      <!-- PAWNS.APP -->
+      <!-- =========================
+           PAWNS.APP
+========================= -->
+
+<div class="app-card">
+
+  <div class="app-header">
+
+    <div class="app-icon">
+
+      <img src="pawnsapp.png" alt="Pawns.app Logo">
+
+    </div>
+
+    <div>
+
+      <h2>Pawns.app</h2>
+
+    </div>
+
+  </div>
+
+
+  <p>
+    Turn your free time into rewards by completing surveys, playing games,
+    and exploring simple ways to earn money.
+  </p>
+
+
+  <ul class="features">
+
+
+    <!-- SURVEYS -->
+
+    <li class="expandable" onclick="toggleDetails(this)">
+
+      <div class="feature-title">
+
+        <span>📝 Complete easy surveys</span>
+
+        <span class="arrow">🔽</span>
+
+      </div>
+
+
+      <div class="feature-details">
+
+        <p>
+          Complete available surveys and earn rewards.
+        </p>
+
+        <img
+          src="survey.jpeg"
+          alt="Complete Surveys"
+          onclick="event.stopPropagation(); openImage(this.src)"
+        >
+
+      </div>
+
+    </li>
+
+
+    <!-- PLAY GAMES -->
+
+    <li class="expandable" onclick="toggleDetails(this)">
+
+      <div class="feature-title">
+
+        <span>🎮 Play games and earn rewards</span>
+
+        <span class="arrow">🔽</span>
+
+      </div>
+
+
+      <div class="feature-details">
+
+        <p>
+          Play available games, complete tasks and earn rewards.
+        </p>
+
+
+        <!-- GAME IMAGES SIDE BY SIDE -->
+
+        <div class="game-images">
+
+          <img
+            src="game1.jpeg"
+            alt="Play Games and Earn"
+            onclick="event.stopPropagation(); openImage(this.src)"
+          >
+
+          <img
+            src="game2.jpeg"
+            alt="More Games and Rewards"
+            onclick="event.stopPropagation(); openImage(this.src)"
+          >
+
+        </div>
+
+      </div>
+
+    </li>
+
+
+    <!-- PAYOUTS -->
+
+    <li class="expandable" onclick="toggleDetails(this)">
+
+      <div class="feature-title">
+
+        <span>💰 Get payouts in multiple ways</span>
+
+        <span class="arrow">🔽</span>
+
+      </div>
+
+
+      <div class="feature-details">
+
+        <p>
+          Withdraw your earnings through options such as PayPal, Bitcoin,
+          gift cards and other available payout methods.
+        </p>
+
+
+        <!-- PAYOUT IMAGES SIDE BY SIDE -->
+
+        <div class="game-images">
+
+          <img
+            src="payout1.jpeg"
+            alt="Multiple Payout Options"
+            onclick="event.stopPropagation(); openImage(this.src)"
+          >
+
+          <img
+            src="payout2.jpeg"
+            alt="Easy Payouts"
+            onclick="event.stopPropagation(); openImage(this.src)"
+          >
+
+        </div>
+
+      </div>
+
+    </li>
+
+
+  </ul>
+
+
+  <a 
+  href="https://discoverpawns.eu/10441592"
+  target="_blank"
+  class="join-btn">
+
+  JOIN PAWNS.APP
+
+</a>
+</div>
+
+
+      <!-- =========================
+           JUMPTASK
+      ========================= -->
 
       <div class="app-card">
 
         <div class="app-header">
 
           <div class="app-icon">
-            <img src="pawnsapp.png" alt="Pawns.app Logo">
+            <img src="jmpt.jpeg" alt="JumpTask Logo">
           </div>
 
           <div>
-            <h2>Pawns.app</h2>
+            <h2>JumpTask</h2>
           </div>
 
         </div>
 
 
         <p>
-          Earn through available opportunities such as
-          sharing unused internet and completing surveys.
+          Earn money online by completing simple tasks, playing games,
+          watching videos and exploring available opportunities.
         </p>
 
 
         <ul class="features">
 
-          <li>🌐 Share unused internet</li>
 
-          <li>📝 Complete available surveys</li>
+          <!-- COMPLETE SIMPLE TASKS -->
 
-          <li>💰 Explore multiple ways to earn</li>
+          <li class="expandable" onclick="toggleDetails(this)">
 
-          <li>📱 Easy to get started</li>
+            <div class="feature-title">
+
+              <span>📋 Complete simple tasks</span>
+
+              <span class="arrow">🔽</span>
+
+            </div>
+
+
+            <div class="feature-details">
+
+              <p>
+                Complete simple online tasks and earn rewards.
+              </p>
+
+              <img
+                src="task.jpeg"
+                alt="Complete Simple Tasks"
+                onclick="event.stopPropagation(); openImage(this.src)"
+              >
+
+            </div>
+
+          </li>
+
+
+          <!-- PLAY GAMES -->
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+            <div class="feature-title">
+
+              <span>🎮 Play games and earn</span>
+
+              <span class="arrow">🔽</span>
+
+            </div>
+
+
+            <div class="feature-details">
+
+              <p>
+                Play available games and complete tasks to earn rewards.
+              </p>
+
+              <img
+                src="games.jpeg"
+                alt="Play Games and Earn"
+                onclick="event.stopPropagation(); openImage(this.src)"
+              >
+
+            </div>
+
+          </li>
+
+
+          <!-- WATCH VIDEOS -->
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+            <div class="feature-title">
+
+              <span>▶️ Watch YouTube videos and earn</span>
+
+              <span class="arrow">🔽</span>
+
+            </div>
+
+
+            <div class="feature-details">
+
+              <p>
+                Watch available videos and earn rewards by completing
+                simple video tasks.
+              </p>
+
+              <img
+                src="video.jpeg"
+                alt="Watch Videos and Earn"
+                onclick="event.stopPropagation(); openImage(this.src)"
+              >
+
+            </div>
+
+          </li>
+
+
+          <!-- EASY PAYOUT -->
+
+          <li class="expandable" onclick="toggleDetails(this)">
+
+            <div class="feature-title">
+
+              <span>💸 Easy payout</span>
+
+              <span class="arrow">🔽</span>
+
+            </div>
+
+
+            <div class="feature-details">
+
+              <p>
+                View available payout options and redeem your earnings.
+              </p>
+
+              <img
+                src="payout.jpeg"
+                alt="Easy Payout"
+                onclick="event.stopPropagation(); openImage(this.src)"
+              >
+
+            </div>
+
+          </li>
+
 
         </ul>
 
 
-        <!-- Referral link will be added later -->
+          <a 
+          href="https://www.jumptask.io/r/cazikewoboba"
+          target="_blank"
+          class="join-btn">
 
-        <span class="coming-soon">
-          LINK COMING SOON
-        </span>
+          JOIN JUMPTASK
 
-      </div>
+        </a>
+    </div>
 
 
     </div>
@@ -1765,8 +2108,6 @@ html, body {
   </section>
 
 </div>
-
-
 
 
 
@@ -1904,6 +2245,7 @@ html, body {
           JOIN NAVI UPI </a>
 
       </div>
+      
 
 
 
