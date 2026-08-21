@@ -8,6 +8,8 @@
 
   <title>OnlineEarningZone | Discover Ways to Earn Online</title>
 
+<link rel="icon" type="image/png" href="oez-logo.png">
+
   <style>
     /* =========================
        GLOBAL SETTINGS
@@ -264,7 +266,37 @@
   font-size: 14px;
   line-height: 1.6;
 }
+.category-card {
 
+  position: relative;
+
+  background: white;
+
+  padding: 25px 25px; /* 32px se kam */
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+
+  color: #222;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(124, 58, 237, 0.08);
+
+  min-height: 190px; /* sab cards same aur compact */
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
     /* =========================
        APP PAGES
     ========================== */
@@ -922,7 +954,102 @@ footer p:first-child {
 .original-logo-text span {
     color: #facc15;
 }
+/* =========================
+   FINAL MOBILE FIX
+========================= */
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile Header */
+@media (max-width: 700px) {
+
+  header {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo-brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .oez-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .original-logo-text {
+    font-size: 21px;
+    white-space: nowrap;
+  }
+
+  .terms-btn,
+  .support-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    width: 100%;
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  /* Sections */
+  section {
+    width: 100%;
+    max-width: 100%;
+    padding: 50px 20px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .category-card {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 700px) {
+
+  .category-grid {
+    gap: 18px;
+  }
+
+  .category-card {
+    min-height: 180px;
+    padding: 20px 18px;
+  }
+
+  .category-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+
+  .category-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+}
 
   </style>
 </head>
@@ -984,9 +1111,10 @@ footer p:first-child {
     Explore useful apps, cashback offers, rewards, referral programs and more — all in one place.
   </p>
 
-  <a href="#categories" class="hero-btn">
-    🚀 Explore Apps ↓
-  </a>
+  <a href="#" class="hero-btn"
+   onclick="document.getElementById('categories').scrollIntoView({behavior: 'smooth'}); return false;">
+  🚀 Explore Apps ↓
+</a>
 
 </section>
 
@@ -2243,6 +2371,13 @@ footer p:first-child {
   /*
     This function returns the user to the home page.
   */
+ window.addEventListener("load", function () {
+    if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname);
+    }
+
+    window.scrollTo(0, 0);
+});
 
   function showHome() {
 
