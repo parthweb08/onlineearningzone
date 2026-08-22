@@ -326,7 +326,7 @@ body.category-page header {
     .page-section {
       display: none;
       min-height: 100vh;
-      padding-top: 100px;
+      padding-top: 40px;
     }
 
     .page-section.active {
@@ -2974,23 +2974,41 @@ function hideTerms() {
 function openSupport() {
     window.location.href = "mailto:onlineearningzone.support@gmail.com";
 }
+
 window.addEventListener("popstate", function(event) {
 
   const popup = document.getElementById("imagePopup");
+  const termsPage = document.getElementById("termsPage");
 
-  // Agar image popup open hai,
-  // to Back dabane par sirf image band karo
-  if (popup.classList.contains("show")) {
+  // =========================
+  // 1. IMAGE POPUP BACK
+  // =========================
+
+  if (popup && popup.classList.contains("show")) {
 
     popup.classList.remove("show");
-
     document.getElementById("popupImage").src = "";
 
     return;
   }
 
 
-  // CATEGORY PAGE BACK
+  // =========================
+  // 2. TERMS PAGE BACK
+  // =========================
+
+  if (termsPage && termsPage.style.display === "block") {
+
+    termsPage.style.display = "none";
+    document.body.style.overflow = "auto";
+
+    return;
+  }
+
+
+  // =========================
+  // 3. CATEGORY PAGE BACK
+  // =========================
 
   if (event.state && event.state.page) {
 
