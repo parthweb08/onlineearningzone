@@ -1109,11 +1109,11 @@ html, body {
 
 }
 .page-section section {
-  padding-top: 0.1px;
+  padding-top: 20px;
 }
 
 .back-btn {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .game-images {
@@ -1129,7 +1129,14 @@ html, body {
   object-fit: cover;
   border-radius: 10px;
 }
+.page-section section {
+  padding-top: 1px !important;
+  margin-top: 0 !important;
+}
 
+.page-section .back-btn {
+  margin-top: 0 !important;
+}
   </style>
 </head>
 
@@ -2909,6 +2916,7 @@ window.addEventListener("popstate", function(event) {
   function toggleDetails(element) {
   element.classList.toggle("open");
 }
+
 function openImage(imageSrc) {
 
   const popup = document.getElementById("imagePopup");
@@ -2917,6 +2925,13 @@ function openImage(imageSrc) {
   popupImage.src = imageSrc;
 
   popup.classList.add("show");
+
+  // Image ke liye alag history state
+  history.pushState(
+    { imagePopup: true },
+    "",
+    window.location.href
+  );
 }
 
 
@@ -2924,12 +2939,18 @@ function closeImage(event) {
 
   const popup = document.getElementById("imagePopup");
 
-  // Close only when clicking outside the image
+  // Close button ya background click
   if (
     event.target === popup ||
     event.target.classList.contains("close-image")
   ) {
-    popup.classList.remove("show");
+
+    if (history.state && history.state.imagePopup) {
+      history.back();
+    } else {
+      popup.classList.remove("show");
+    }
+
   }
 }
 function showTerms() {
@@ -2953,26 +2974,41 @@ function hideTerms() {
 function openSupport() {
     window.location.href = "mailto:onlineearningzone.support@gmail.com";
 }
-window.addEventListener("popstate", function () {
+window.addEventListener("popstate", function(event) {
 
-    // Terms page close
-    document.getElementById("termsPage").style.display = "none";
-    document.body.style.overflow = "auto";
+  const popup = document.getElementById("imagePopup");
 
-    // Home page show
+  // Agar image popup open hai,
+  // to Back dabane par sirf image band karo
+  if (popup.classList.contains("show")) {
+
+    popup.classList.remove("show");
+
+    document.getElementById("popupImage").src = "";
+
+    return;
+  }
+
+
+  // CATEGORY PAGE BACK
+
+  if (event.state && event.state.page) {
+
+    showPage(event.state.page, false);
+
+  } else {
+
+    document.body.classList.remove("category-page");
+
     document.getElementById("homePage").style.display = "block";
 
-    // Hide category pages
     document.querySelectorAll(".page-section").forEach(function(page) {
-        page.classList.remove("active");
+      page.classList.remove("active");
     });
 
     window.scrollTo(0, 0);
-});
-window.addEventListener("load", function () {
-    if (!window.location.hash) {
-        window.scrollTo(0, 0);
-    }
+  }
+
 });
 </script>
 <!-- Image Zoom Popup -->
