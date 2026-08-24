@@ -1137,13 +1137,168 @@ html, body {
 .page-section .back-btn {
   margin-top: 0 !important;
 }
+/* =========================
+   WELCOME POPUP
+========================= */
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(10, 15, 35, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 9999;
+
+  transition: 0.4s ease;
+}
+
+.welcome-box {
+  width: 90%;
+  max-width: 450px;
+
+  text-align: center;
+
+  padding: 40px 30px;
+
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3);
+
+  animation: welcomeAnimation 0.5s ease;
+}
+
+.welcome-logo {
+  width: 90px;
+  height: 90px;
+
+  object-fit: contain;
+
+  margin-bottom: 15px;
+}
+
+.welcome-box h1 {
+  margin: 5px 0;
+
+  font-size: 22px;
+
+  color: #555;
+}
+
+.welcome-box h2 {
+  margin: 5px 0 20px;
+
+  font-size: 34px;
+
+  color: #1e3c72;
+}
+
+.welcome-box h2 span {
+  color: #ffd43b;
+}
+
+.welcome-box p {
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #555;
+
+  margin-bottom: 25px;
+}
+
+.welcome-box button {
+  border: none;
+
+  padding: 14px 30px;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  color: white;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #3157c9,
+    #6b3fd4
+  );
+
+  transition: 0.3s;
+}
+
+.welcome-box button:hover {
+  transform: scale(1.05);
+}
+
+
+/* POPUP ANIMATION */
+
+@keyframes welcomeAnimation {
+
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+}
+
+
+/* CLOSE POPUP */
+
+.welcome-overlay.hide {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
   </style>
 </head>
 
 
 
 <body>
+  
+<!-- WELCOME POPUP -->
+<div id="welcomePopup" class="welcome-overlay">
 
+  <div class="welcome-box">
+
+    <img src="oez-logo.png" alt="OnlineEarningZone Logo" class="welcome-logo">
+
+    <h1>Welcome to</h1>
+
+    <h2>Online<span>Earning</span>Zone</h2>
+
+    <p>
+      Discover different apps and platforms where you can
+      explore various ways to earn online.
+    </p>
+
+    <button onclick="closeWelcome()">
+      Let's Explore 🚀
+    </button>
+
+  </div>
+
+</div>
 
 <!-- =========================
      HEADER
@@ -3184,5 +3339,36 @@ window.addEventListener("popstate", function(event) {
     </div>
 
 </div>
+
+<script>
+
+const welcomePopup = document.getElementById("welcomePopup");
+
+function closeWelcome() {
+  welcomePopup.classList.add("hide");
+}
+
+
+/* Mobile / Browser Back Button */
+
+window.addEventListener("popstate", function () {
+
+  /* Agar image open hai to image close hoga */
+  const imagePopup = document.getElementById("imagePopup");
+
+  if (imagePopup && imagePopup.style.display === "flex") {
+    imagePopup.style.display = "none";
+    return;
+  }
+
+  /* Agar welcome popup open hai to sirf popup close hoga */
+  if (!welcomePopup.classList.contains("hide")) {
+    welcomePopup.classList.add("hide");
+    return;
+  }
+
+});
+
+</script>
 </body>
 </html>
