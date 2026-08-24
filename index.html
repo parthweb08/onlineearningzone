@@ -1145,15 +1145,22 @@ html, body {
   position: fixed;
   inset: 0;
 
+  width: 100%;
+  height: 100dvh;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
+  pointer-events: auto;
+  touch-action: none;
+
   background: rgba(10, 15, 35, 0.45);
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
-  z-index: 9999;
+  z-index: 99999;
 
   transition: 0.4s ease;
 }
@@ -3342,30 +3349,68 @@ window.addEventListener("popstate", function(event) {
 
 <script>
 
-const welcomePopup = document.getElementById("welcomePopup");
+document.addEventListener("DOMContentLoaded", function () {
 
-function closeWelcome() {
-  welcomePopup.classList.add("hide");
-}
+  const welcomePopup =
+    document.getElementById("welcomePopup");
+
+  /* Welcome open hai */
+  let welcomeOpen = true;
 
 
-/* Mobile / Browser Back Button */
+  /* Extra history state */
+  history.pushState(
+    { welcome: true },
+    "",
+    window.location.href
+  );
 
-window.addEventListener("popstate", function () {
 
-  /* Agar image open hai to image close hoga */
-  const imagePopup = document.getElementById("imagePopup");
+  /* LET'S EXPLORE BUTTON */
 
-  if (imagePopup && imagePopup.style.display === "flex") {
-    imagePopup.style.display = "none";
-    return;
-  }
+  window.closeWelcome = function () {
 
-  /* Agar welcome popup open hai to sirf popup close hoga */
-  if (!welcomePopup.classList.contains("hide")) {
+    if (!welcomeOpen) return;
+
+    welcomeOpen = false;
+
     welcomePopup.classList.add("hide");
-    return;
-  }
+
+    /* Website ko normal scroll allow */
+    document.body.style.overflow = "auto";
+
+  };
+
+
+  /* Mobile / Browser Back */
+
+  window.addEventListener("popstate", function () {
+
+    if (welcomeOpen) {
+
+      /* Sirf popup band karo */
+      welcomeOpen = false;
+
+      welcomePopup.classList.add("hide");
+
+      document.body.style.overflow = "auto";
+
+      /* Home state par wapas */
+      history.pushState(
+        { home: true },
+        "",
+        window.location.href
+      );
+
+      return;
+    }
+
+  });
+
+
+  /* Welcome open ho to background scroll block */
+
+  document.body.style.overflow = "hidden";
 
 });
 
