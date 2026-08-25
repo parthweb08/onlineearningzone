@@ -1297,63 +1297,60 @@ html, body {
 }
 
 
-/* BACKGROUND OVERLAY */
+/* =========================
+   BACKGROUND OVERLAY
+========================= */
 
 .navi-tc-overlay {
   position: fixed;
   inset: 0;
-
   display: none;
-
   justify-content: center;
   align-items: center;
-
   padding: 20px;
   box-sizing: border-box;
-
   background: rgba(10, 15, 35, 0.45);
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
   z-index: 999999;
-
-  overflow-y: auto;
 }
-
-
-/* POPUP OPEN */
 
 .navi-tc-overlay.show {
   display: flex;
 }
 
 
-/* TC BOX */
+/* =========================
+   TERMS & CONDITIONS BOX
+========================= */
 
 .navi-tc-box {
   position: relative;
-
   width: 100%;
   max-width: 500px;
+  height: 85vh;
 
-  max-height: 85vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
   padding: 30px 25px;
-
   box-sizing: border-box;
 
   border-radius: 22px;
-
   background: white;
 
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.35);
 
   animation: naviTCAnimation 0.3s ease;
+
+  overflow: hidden;
 }
 
+
+/* =========================
+   POPUP ANIMATION
+========================= */
 
 @keyframes naviTCAnimation {
 
@@ -1370,23 +1367,36 @@ html, body {
 }
 
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
 
 .navi-tc-box h2 {
+  flex-shrink: 0;
+
   margin-top: 0;
-  padding-right: 35px;
+  margin-bottom: 15px;
+
+  padding-right: 40px;
 
   font-size: 23px;
-
   color: #1e3c72;
 }
 
 
-/* CONTENT */
+/* =========================
+   SCROLLABLE CONTENT ONLY
+========================= */
 
 .navi-tc-content {
+  flex: 1;
+
+  overflow-y: auto;
+
   color: #444;
   line-height: 1.7;
+
+  padding-right: 8px;
 }
 
 .navi-tc-content ol {
@@ -1398,13 +1408,17 @@ html, body {
 }
 
 
-/* CLOSE X */
+/* =========================
+   CLOSE X BUTTON
+========================= */
 
 .navi-tc-close {
   position: absolute;
 
   top: 15px;
   right: 15px;
+
+  z-index: 10;
 
   border: none;
 
@@ -1421,9 +1435,13 @@ html, body {
 }
 
 
-/* GOT IT BUTTON */
+/* =========================
+   GOT IT BUTTON
+========================= */
 
 .navi-tc-done {
+  flex-shrink: 0;
+
   width: 100%;
 
   margin-top: 20px;
@@ -1571,6 +1589,609 @@ html, body {
   font-weight: bold;
   cursor: pointer;
   background: linear-gradient(135deg, #3157c9, #6b3fd4);
+}
+
+
+/* =========================
+   PHONEPE FORM
+========================= */
+
+#phonepeForm {
+
+  margin-top: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+}
+
+#phonepeForm input {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #d5dbe8;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  font-family: inherit;
+
+}
+
+#phonepeForm input:focus {
+
+  border-color: #5a49d6;
+
+  box-shadow: 0 0 0 3px rgba(90, 73, 214, 0.1);
+
+}
+
+#phonepeForm label {
+
+  text-align: left;
+
+  font-weight: 600;
+
+  margin-top: 5px;
+
+  color: #333;
+
+}
+
+.phonepe-form-info {
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin-top: 15px;
+
+}
+
+.phonepe-submit-btn {
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #3157c9, #6b3fd4);
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.phonepe-submit-btn:hover {
+
+  transform: scale(1.02);
+
+}
+
+#phonepeMessage {
+
+  text-align: center;
+
+  font-weight: 600;
+
+  margin: 5px 0 0;
+
+}
+
+
+/* =========================
+   PHONEPE FORM POPUP
+========================= */
+
+.phonepe-form-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: rgba(10, 15, 35, 0.45);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 99999;
+
+}
+
+.phonepe-form-overlay.show {
+
+  display: flex;
+
+}
+
+.phonepe-form-box {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 450px;
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  padding: 30px 25px;
+
+  box-sizing: border-box;
+
+  border-radius: 22px;
+
+  background: white;
+
+}
+
+.phonepe-form-close {
+
+  position: absolute;
+
+  top: 12px;
+
+  right: 12px;
+
+  border: none;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+}
+
+
+/* =========================
+   PHONEPE FORM BUTTONS
+========================= */
+
+.phonepe-submit-btn,
+
+.phonepe-form-open-btn {
+
+  border: none;
+
+  padding: 13px 20px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #3157c9, #6b3fd4);
+
+}
+/* =========================
+   PHONEPE TERMS POPUP
+========================= */
+
+.phonepe-modal {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: rgba(10, 15, 35, 0.45);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 99999;
+}
+
+.phonepe-modal.show {
+  display: flex;
+}
+
+.phonepe-modal-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 650px;
+
+  max-height: 85vh;
+  overflow-y: auto;
+
+  padding: 30px 25px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.phonepe-modal-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.phonepe-tc-content h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.phonepe-tc-content p {
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.phonepe-tc-content ul {
+  padding-left: 22px;
+  margin-bottom: 15px;
+}
+
+.phonepe-tc-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.phonepe-close-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+/* =========================
+   PHONEPE TERMS BUTTON
+========================= */
+
+/* =========================
+   PHONEPE TERMS & CONDITIONS BUTTON
+   SAME AS NAVI
+========================= */
+
+.phonepe-tc-button-box {
+  text-align: center;
+  margin: 18px 0;
+}
+
+.phonepe-tc-button-box button {
+  border: none;
+  background: transparent;
+  color: #3157c9;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+/* =========================
+   PHONEPE TERMS MODAL
+========================= */
+
+.phonepe-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(10, 15, 35, 0.45);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 99999;
+}
+
+.phonepe-modal.show {
+  display: flex;
+}
+
+.phonepe-modal-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  max-height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 25px 20px;
+
+  box-sizing: border-box;
+
+  border-radius: 22px;
+
+  background: white;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.phonepe-modal-content h2 {
+  text-align: center;
+
+  margin: 0 30px 20px;
+
+  font-size: 24px;
+
+  color: #333;
+}
+
+.phonepe-close-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 16px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  color: #333;
+}
+
+.phonepe-tc-content {
+  overflow-y: auto;
+
+  padding: 0 10px 5px 0;
+
+  font-size: 16px;
+
+  line-height: 1.55;
+
+  color: #444;
+}
+
+.phonepe-tc-content p {
+  margin-top: 0;
+}
+
+.phonepe-tc-content ol {
+  margin: 0;
+
+  padding-left: 25px;
+}
+
+.phonepe-tc-content li {
+  margin-bottom: 10px;
+}
+
+/* GOT IT BUTTON */
+
+.phonepe-got-it-btn {
+  border: none;
+
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 18px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #3157c9,
+    #6b3fd4
+  );
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.phonepe-got-it-btn:hover {
+  transform: scale(1.02);
+}
+/* =========================
+   PHONEPE REWARD FORM
+========================= */
+
+#phonepeForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#phonepeForm input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #d5dbe8;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+}
+
+#phonepeForm input:focus {
+  border-color: #5a49d6;
+  box-shadow: 0 0 0 3px rgba(90, 73, 214, 0.1);
+}
+
+#phonepeForm label {
+  text-align: left;
+  font-weight: 600;
+  margin-top: 5px;
+  color: #333;
+}
+
+
+/* FORM INFO */
+
+.phonepe-form-info {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+
+/* SUBMIT BUTTON */
+
+.phonepe-submit-btn,
+.phonepe-form-open-btn {
+  border: none;
+  padding: 13px 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    #3157c9,
+    #6b3fd4
+  );
+}
+
+.phonepe-submit-btn:hover,
+.phonepe-form-open-btn:hover {
+  transform: scale(1.02);
+}
+
+
+/* MESSAGE */
+
+#phonepeMessage {
+  text-align: center;
+  font-weight: 600;
+  margin: 5px 0 0;
+}
+
+
+/* =========================
+   FORM POPUP OVERLAY
+========================= */
+
+.phonepe-form-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(10, 15, 35, 0.45);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 99999;
+}
+
+
+/* OPEN POPUP */
+
+.phonepe-form-overlay.show {
+  display: flex;
+}
+
+
+/* =========================
+   FORM BOX
+========================= */
+
+.phonepe-form-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 450px;
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  padding: 30px 25px;
+  box-sizing: border-box;
+
+  border-radius: 22px;
+
+  background: white;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* CLOSE BUTTON */
+
+.phonepe-form-close {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  border: none;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background: #f1f1f1;
+
+  font-size: 20px;
+
+  cursor: pointer;
 }
   </style>
 </head>
@@ -2882,7 +3503,60 @@ html, body {
   </div>
 
 </li>
+
+<!-- PHONEPE ₹80 REWARD + FORM -->
+
+<li class="expandable" onclick="toggleDetails(this)">
+
+  <div class="feature-title">
+
+    <span>🎁 Join using the link below and get ₹80</span>
+
+    <span class="arrow">🔽</span>
+
+  </div>
+
+
+  <div class="feature-details">
+
+    <p>
+      Complete the required PhonePe process according to the
+      Terms & Conditions to receive your guaranteed ₹80 reward.
+    </p>
+
+
+    <p class="form-info">
+
+      After installing PhonePe through the referral link and
+      completing the required process, fill out the Reward Form below.
+    </p>
+
+
+    <button
+      type="button"
+      onclick="event.stopPropagation(); openPhonePeForm()"
+      class="phonepe-form-open-btn"
+    >
+
+      📝 Fill Reward Form
+
+    </button>
+
+  </div>
+
+</li>
         </ul>
+
+        <div class="phonepe-tc-button-box">
+
+  <button 
+    type="button" 
+    onclick="openPhonePeTC()"
+  >
+    📄 Terms & Conditions
+  </button>
+
+</div>
 
 
         <a
@@ -3653,6 +4327,165 @@ window.addEventListener("popstate", function () {
   }
 });
 
+/* =========================
+   PHONEPE TERMS POPUP
+========================= */
+
+function openPhonePeTC() {
+
+  document
+    .getElementById("phonepeTCModal")
+    .classList.add("show");
+
+  history.pushState(
+    { phonepeTC: true },
+    ""
+  );
+}
+
+
+function closePhonePeTC() {
+
+  document
+    .getElementById("phonepeTCModal")
+    .classList.remove("show");
+}
+
+
+/* MOBILE BACK BUTTON */
+
+window.addEventListener("popstate", function() {
+
+  const phonepeModal =
+    document.getElementById("phonepeTCModal");
+
+  if (
+    phonepeModal &&
+    phonepeModal.classList.contains("show")
+  ) {
+
+    phonepeModal.classList.remove("show");
+
+  }
+
+});function openPhonePeTC() {
+  document
+    .getElementById("phonepeTCModal")
+    .classList.add("show");
+}
+
+function closePhonePeTC() {
+  document
+    .getElementById("phonepeTCModal")
+    .classList.remove("show");
+}
+/* =========================
+   PHONEPE FORM
+========================= */
+
+function openPhonePeForm() {
+  document.getElementById("phonepeFormOverlay")
+    .classList.add("show");
+}
+
+function closePhonePeForm() {
+  document.getElementById("phonepeFormOverlay")
+    .classList.remove("show");
+}
+
+
+/* PHONEPE FORM SUBMISSION */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const phonepeForm =
+    document.getElementById("phonepeForm");
+
+  if (!phonepeForm) {
+    console.log("PhonePe form not found");
+    return;
+  }
+
+  phonepeForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name =
+      document.getElementById("phonepeName").value.trim();
+
+    const mobile =
+      document.getElementById("phonepeMobile").value.trim();
+
+    const upi =
+      document.getElementById("phonepeUpi").value.trim();
+
+    const installationDate =
+      document.getElementById("phonepeInstallationDate").value;
+
+    const message =
+      document.getElementById("phonepeMessage");
+
+
+    if (!/^[0-9]{10}$/.test(mobile)) {
+
+      message.style.color = "red";
+
+      message.innerText =
+        "Please enter a valid 10-digit mobile number.";
+
+      return;
+    }
+
+
+    message.style.color = "#555";
+
+    message.innerText = "Submitting...";
+
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwFNUeUWAdLiZQ8RpXbcXLa8wzvfVjPkzdQSPVPji4Dtwy00p06t3ZPNvVU9B9VUuJMpQ/exec",
+      {
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify({
+          type: "phonepe",
+          name: name,
+          mobile: mobile,
+          upi: upi,
+          installationDate: installationDate
+        })
+      }
+    )
+
+    .then(function () {
+
+      message.style.color = "green";
+
+      message.innerText =
+        "Your details have been submitted successfully!";
+
+      phonepeForm.reset();
+
+    })
+
+    .catch(function () {
+
+      message.style.color = "red";
+
+      message.innerText =
+        "Something went wrong. Please try again.";
+
+    });
+
+  });
+
+});
 
 </script>
 <!-- Image Zoom Popup -->
@@ -3964,79 +4797,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </div>
 
-<script>
-
-document.getElementById("naviForm").addEventListener("submit", function(e) {
-
-  e.preventDefault();
-
-  const name = document.getElementById("naviName").value.trim();
-
-  const mobile = document.getElementById("naviMobile").value.trim();
-
-  const upi = document.getElementById("naviUpi").value.trim();
-
-  const installationDate =
-    document.getElementById("installationDate").value;
-
-  const message = document.getElementById("naviMessage");
-
-
-  if (!/^[0-9]{10}$/.test(mobile)) {
-
-    message.style.color = "red";
-
-    message.innerText =
-      "Please enter a valid 10-digit mobile number.";
-
-    return;
-  }
-
-
-  message.style.color = "#555";
-
-  message.innerText = "Submitting...";
-
-
-  fetch(
-    "https://script.google.com/macros/s/AKfycbyEP7AZfj4Ne0KQ4r_kCccObSqnsm4n_2n5PWBmU3nZKwotP_q3DPUUOiNTKQ3M-yvy/exec",
-    {
-      method: "POST",
-
-      mode: "no-cors",
-
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-
-      body: JSON.stringify({
-        name: name,
-        mobile: mobile,
-        upi: upi,
-        installationDate: installationDate
-      })
-    }
-  )
-  .then(() => {
-
-    message.style.color = "green";
-
-    message.innerText =
-      "Your details have been submitted successfully!";
-
-    document.getElementById("naviForm").reset();
-
-  })
-  .catch(() => {
-
-    message.style.color = "red";
-
-    message.innerText =
-      "Something went wrong. Please try again.";
-
-  });
-
-});
 
 </script>
 <!-- NAVI REWARD FORM POPUP -->
@@ -4088,6 +4848,60 @@ document.getElementById("naviForm").addEventListener("submit", function(e) {
       <p id="naviMessage"></p>
 
     </form>
+    <script>
+document.getElementById("naviForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("naviName").value.trim();
+  const mobile = document.getElementById("naviMobile").value.trim();
+  const upi = document.getElementById("naviUpi").value.trim();
+  const installationDate =
+    document.getElementById("installationDate").value;
+
+  const message = document.getElementById("naviMessage");
+
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    message.style.color = "red";
+    message.innerText =
+      "Please enter a valid 10-digit mobile number.";
+    return;
+  }
+
+  message.style.color = "#555";
+  message.innerText = "Submitting...";
+
+  fetch(
+    "https://script.google.com/macros/s/AKfycbz4j8o6Hl4C-ccxFvMhKWwV5wOi0A6b-9NiSxyYH3Caape-DLZOTcXgCNlFN8lmP-gftg/exec",
+    {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify({
+        name: name,
+        mobile: mobile,
+        upi: upi,
+        installationDate: installationDate
+      })
+    }
+  )
+  .then(() => {
+    message.style.color = "green";
+    message.innerText =
+      "Your details have been submitted successfully!";
+
+    document.getElementById("naviForm").reset();
+  })
+  .catch(() => {
+    message.style.color = "red";
+    message.innerText =
+      "Something went wrong. Please try again.";
+  });
+
+});
+</script>
 
   </div>
 
@@ -4129,7 +4943,7 @@ document.getElementById("naviForm").addEventListener("submit", function(e) {
 
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbyEP7AZfj4Ne0KQ4r_kCccObSqnsm4n_2n5PWBmU3nZKwotP_q3DPUUOiNTKQ3M-yvy/exec",
+    "https://script.google.com/macros/s/AKfycbzTRgZ7OFXUfEo77JgZCLUmNWd5UjLT-bw1VPw_Uf670ySpZ5_39d2tlttNMGVTTYC-/exec",
     {
       method: "POST",
 
@@ -4140,6 +4954,7 @@ document.getElementById("naviForm").addEventListener("submit", function(e) {
       },
 
       body: JSON.stringify({
+        type: "navi",
         name: name,
         mobile: mobile,
         upi: upi,
@@ -4170,5 +4985,181 @@ document.getElementById("naviForm").addEventListener("submit", function(e) {
 
 });
 </script>
+
+<!-- PHONEPE TERMS & CONDITIONS MODAL -->
+
+<div id="phonepeTCModal" class="phonepe-modal">
+
+  <div class="phonepe-modal-content">
+
+    <button
+      type="button"
+      class="phonepe-close-btn"
+      onclick="closePhonePeTC()"
+    >
+      ×
+    </button>
+
+    <h2>PhonePe Terms & Conditions</h2>
+
+    <div class="phonepe-tc-content">
+
+      <p>Please read the following terms carefully before participating.</p>
+
+      <ol>
+
+        <li>
+          Join PhonePe using the link provided on this website.
+        </li>
+
+        <li>
+          You must sign up on the PhonePe app within
+          <strong>1 hour</strong> of clicking the referral link.
+        </li>
+
+        <li>
+          Simply installing or joining PhonePe does not make you eligible
+          for the ₹80 reward.
+        </li>
+
+        <li>
+          You must complete your first successful UPI payment within
+          <strong>5 days</strong> of registering on the PhonePe app.
+        </li>
+
+        <li>
+          The payment must be successfully completed using a bank account
+          linked to PhonePe.
+        </li>
+
+        <li>
+          The referred user must be a new and eligible PhonePe user
+          according to the applicable referral requirements.
+        </li>
+
+        <li>
+          Cashback or referral eligibility on PhonePe may be subject to
+          PhonePe's applicable offer conditions.
+        </li>
+
+        <li>
+          Incorrect, duplicate, incomplete, or invalid information may
+          result in rejection.
+        </li>
+
+        <li>
+          After successfully completing all the required steps, you must
+          fill out the <strong>Reward Form</strong> provided on this website.
+        </li>
+
+        <li>
+          After your submitted details and required activity are successfully
+          verified, you will receive a
+          <strong>guaranteed ₹80 reward.</strong>
+        </li>
+
+        <li>
+          The reward may take some time to be processed after verification.
+        </li>
+
+        <li>
+          Offer availability and conditions may change or end at any time.
+        </li>
+
+      </ol>
+
+    </div>
+
+    <button
+      type="button"
+      class="phonepe-got-it-btn"
+      onclick="closePhonePeTC()"
+    >
+      Got It ✓
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =========================
+     PHONEPE REWARD FORM POPUP
+========================= -->
+
+<div id="phonepeFormOverlay" class="phonepe-form-overlay">
+
+  <div class="phonepe-form-box">
+
+    <button
+      type="button"
+      class="phonepe-form-close"
+      onclick="closePhonePeForm()"
+    >
+      ✕
+    </button>
+
+    <h2>PhonePe Reward Form</h2>
+
+    <p class="form-info">
+      Please enter your correct details after completing
+      the required PhonePe process.
+    </p>
+
+
+    <form id="phonepeForm">
+
+      <input
+        type="text"
+        id="phonepeName"
+        placeholder="Enter your full name"
+        required
+      >
+
+
+      <input
+        type="tel"
+        id="phonepeMobile"
+        placeholder="Enter your mobile number"
+        pattern="[0-9]{10}"
+        required
+      >
+
+
+      <input
+        type="text"
+        id="phonepeUpi"
+        placeholder="Enter your UPI ID"
+        required
+      >
+
+
+      <label for="phonepeInstallationDate">
+        App Installation Date
+      </label>
+
+      <input
+        type="date"
+        id="phonepeInstallationDate"
+        required
+      >
+
+
+      <button
+        type="submit"
+        class="phonepe-submit-btn"
+      >
+        Submit Details
+      </button>
+
+
+      <p id="phonepeMessage"></p>
+
+    </form>
+
+  </div>
+
+</div>
+
+
 </body>
 </html>
